@@ -1,21 +1,21 @@
 let amigos = [];
+const inputAmigo = document.querySelector("#amigo");
+const amigo = inputAmigo.value;
 
 function adicionarAmigo(){
-  const inputAmigo = document.querySelector("#amigo");
-  const amigo = inputAmigo.value;
 
   if(!(amigo.match("[a-zA-Z]"))){
     alert("Por favor, insira um nome.");
-    limparInput(inputAmigo);
+    limparInput();
     return;
   }
 
   amigos.push(amigo);
   atualizarLista();
-  limparInput(inputAmigo);
+  limparInput();
 }
 
-function limparInput(inputAmigo){
+function limparInput(){
   inputAmigo.value = "";
   inputAmigo.focus();
 }
@@ -29,5 +29,11 @@ function atualizarLista(){
 }
 
 function sortearAmigo(){
+  if(amigos.length == 0){
+    alert("Por favor, adicione amigos.");
+    limparInput();
+    return;
+  }
+
 
 }
