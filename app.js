@@ -1,8 +1,8 @@
 let amigos = [];
 const inputAmigo = document.querySelector("#amigo");
-const amigo = inputAmigo.value;
 
 function adicionarAmigo(){
+  const amigo = inputAmigo.value;
 
   if(!(amigo.match("[a-zA-Z]"))){
     alert("Por favor, insira um nome.");
@@ -29,11 +29,18 @@ function atualizarLista(){
 }
 
 function sortearAmigo(){
-  if(amigos.length == 0){
+  const qtdAmigos = amigos.length;
+  const listaAmigos = document.querySelector("#listaAmigos");
+  const resultado = document.querySelector("#resultado");
+
+  if(qtdAmigos == 0){
     alert("Por favor, adicione amigos.");
     limparInput();
     return;
   }
 
-
+  const indiceAleatorio = Math.floor(Math.random() * qtdAmigos);
+  listaAmigos.innerHTML = "";
+  resultado.innerHTML = amigos[indiceAleatorio];
+  amigos = [];
 }
