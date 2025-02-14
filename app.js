@@ -2,14 +2,20 @@ let amigos = [];
 
 function adicionarAmigo(){
   const inputAmigo = document.querySelector("#amigo");
-  const amigo = inputAmigo.value;  
+  const amigo = inputAmigo.value;
+
   if(!(amigo.match("[a-zA-Z]"))){
     alert("Por favor, insira um nome.");
+    limparInput(inputAmigo);
+    return;
   }
-  else{
-    amigos.push(amigo);
-    atualizarLista();
-  }
+
+  amigos.push(amigo);
+  atualizarLista();
+  limparInput(inputAmigo);
+}
+
+function limparInput(inputAmigo){
   inputAmigo.value = "";
   inputAmigo.focus();
 }
@@ -20,4 +26,8 @@ function atualizarLista(){
   const li = document.createElement("li");
   li.innerHTML = `<li>${novoAmigo}</li>`;
   listaAmigos.appendChild(li);
+}
+
+function sortearAmigo(){
+
 }
